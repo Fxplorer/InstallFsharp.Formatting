@@ -1,0 +1,37 @@
+[
+    {
+        "uri": "/FsConsoleApp/Untitled-1.html",
+        "title": "Untitled-1",
+        "content": "The goal of this workbook is to initialize the Fsharp.Formatting document creation utility in one\u0027s own repo.\nOne can use a Polyglot notebook to issue commands and code in different languages and contexts. For example, setting the block to PowerShell essentilly gives one a command prompt or terminal.\ndotnet --info\n\n\u0026nbsp;\u0026nbsp;TIP\n\u0026nbsp;\u0026nbsp;\u0026nbsp;The outputs of running a block can be collapsed by double-clicking in the space between the marker bar and content border\nto the very left.\n\n\u0026nbsp;\u0026nbsp;NEW LEARNING\n\u0026nbsp;\u0026nbsp;\u0026nbsp;markdown blocks can have html put in them and it will automatically render. Using an html block will show the html code, and only when executed will it render. \nPowerShell also has its own contructs (like bash) where scripting is possible. (The | is the pipe like in bash and |\u0026gt; in F#)\nGet-Process | Where-Object { $_.CPU -gt 10 } | Format-Table -AutoSize\n\n",
+        "headings": [],
+        "type": "content"
+    },
+    {
+        "uri": "/FsConsoleApp/fsdocs.html",
+        "title": "fsdocs",
+        "content": "The goal of this workbook is to initialize the FSharp.Formatting document creation utility in one\u0027s own repo.\nThis workbook should be placed in the repo root. FSharp.Formatting may be initialized using the dotnet tool utility.\nThe standard setup is to have RepoRoot/docs where all your documentation .md and .fsx, etc files go. fsdocs will search through this directory and create the *.html files in the RepoRoot/output directory. There are customizations that can be set using the docs in the FSharp.Formatting repo. If a docs directoy is needed, run:\nmkdir docs\n\nBy default, fsdocs will search though each of your projects and create the API REFERENCE section. So in order to include that example, have a F# project in your repo.\nIf the need exists to create a simple console app for this demo, run the next block. Otherwise, skip execution.\ndotnet new console -lang f# -o src/FsConsoleApp\n\nReplace the contents of Programs.fs with the code in the following block:\n//Programs.fs demo file contents\n\n/// This is a simple F# console application that demonstrates the use of XML comments.\n/// It prompts the user to enter a name and then greets them.\nmodule FsConsoleApp\n\nopen System\n\n/// This function greets the user with a personalized message.\nlet greet (name: string) =\n    printfn \u0026quot;Hello, %s! Welcome to the F# console app.\u0026quot; name\n\n[\u0026lt;EntryPoint\u0026gt;]\nlet main args =\n    printfn \u0026quot;Please enter your name:\u0026quot;\n    /// Apply XML comment to the name binding\n    /// \u0026lt;summary\u0026gt;This is an XML comment for name.\u0026lt;/summary\u0026gt;\n    let name = Console.ReadLine()\n\n    \n    greet name\n\n    printfn \u0026quot;Press any key to exit...\u0026quot;\n    Console.ReadKey() |\u0026gt; ignore\n    0 // return an integer exit code\n\ndotnet tool will error without a Dotnet local tool manifest file.\nCreate one:\ndotnet new tool-manifest\n\nThe basic command to install Fsharp.Formatting is:\ndotnet tool install fsdocs-tool\n\nfsdocs watch will launch a browser and allow you to browse your created docs. When it launches, it will try to hit index.html and will then 404. One needs to have a index.md or index.fsx file in the docs directy so fsdocs will create the index.html.\nRunning the build command will search through and generate all the html into an RepoRoot/ output directory.\ndotnet fsdocs build\n\n",
+        "headings": [],
+        "type": "content"
+    },
+    {
+        "uri": "/FsConsoleApp/index.html",
+        "title": "index",
+        "content": "this is the index.md file.\n",
+        "headings": [],
+        "type": "content"
+    },
+    {
+        "uri": "/FsConsoleApp/sample-ipynb-file.html",
+        "title": "sample-ipynb-file",
+        "content": "this is the index.ipynb file.\n",
+        "headings": [],
+        "type": "content"
+    },
+    {
+        "uri": "/FsConsoleApp/sample-fsx-file.html",
+        "title": "sample-fsx-file",
+        "content": "//this is the \u0060sample-fsx-file.fsx\u0060 file. \n\n",
+        "headings": [],
+        "type": "content"
+    }
+]

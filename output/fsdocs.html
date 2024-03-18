@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" data-root="/FsConsoleApp/">
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="author">
+    <!-- Opengraph properties (https://ogp.me/) -->
+    <meta property="og:site_name" content="FsConsoleApp">
+    <meta property="og:title" content="fsdocs" />
+    <meta property="og:url" content="/FsConsoleApp/script.html">
+    <meta property="og:type" content="website" />
+    <!-- Twitter cards (https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/summary-card-with-large-image) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="/FsConsoleApp/">
+    <meta name="twitter:title" content="fsdocs">
+    
+    <title>fsdocs | FsConsoleApp</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link href="/FsConsoleApp/img/favicon.ico" rel="icon" sizes="32x32" type="image/png"/>
+    <script type="application/javascript" src="/FsConsoleApp/content/fsdocs-theme-set-dark.js"></script>
+    <link href="/FsConsoleApp/content/fsdocs-default.css" rel="stylesheet" type="text/css"/>
+    <link href="/FsConsoleApp/content/fsdocs-theme.css" rel="stylesheet" type="text/css"/>
+    
+    
+</head>
+<body class="content">
+<header>
+    <div class="start">
+        <div id="menu-toggle">
+            <iconify-icon class="icon closed" height="22" icon="eva:menu-fill" width="22"></iconify-icon>
+            <iconify-icon class="icon open" height="22" icon="mi:close" width="22"></iconify-icon>
+            <input type="checkbox" name="mobile-menu" />
+            <ul class="menu">
+                <li class="nav-header">Links</li>
+                <li class="nav-item"><a class="nav-link" href="{{fsdocs-license-link}}">License</a>
+                </li>
+                <li class="nav-item"><a class="nav-link"
+                                        href="{{fsdocs-release-notes-link}}">Release
+                    Notes</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{fsdocs-repository-link}}">Source
+                    Repository</a></li>
+                <li class="nav-header">
+  Documentation
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="/FsConsoleApp/Untitled-1.html">
+    Untitled-1
+  </a>
+</li>             
+<li class="nav-item active">
+  <a class="nav-link" href="/FsConsoleApp/fsdocs.html">
+    fsdocs
+  </a>
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="/FsConsoleApp/sample-ipynb-file.html">
+    sample-ipynb-file
+  </a>
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="/FsConsoleApp/sample-fsx-file.html">
+    sample-fsx-file
+  </a>
+</li>
+                
+            </ul>
+        </div>
+        <a href="/FsConsoleApp/">
+            <img alt="Header menu logo" src="/FsConsoleApp/img/logo.png">
+            <strong>FsConsoleApp</strong>
+        </a>
+    </div>
+    <div class="end">
+        <a href="{{fsdocs-repository-link}}" target="_blank">
+            <iconify-icon icon="uil:github" width="26" height="26"></iconify-icon>
+        </a>
+        <iconify-icon id="search-btn" icon="carbon:search" class="search" width="24" height="24"></iconify-icon>
+        <fsdocs-theme-toggle></fsdocs-theme-toggle>
+    </div>
+</header>
+<aside id="fsdocs-main-menu">
+    <ul class="menu">
+        <li class="nav-header">Links</li>
+        <li class="nav-item"><a class="nav-link" href="{{fsdocs-license-link}}">License</a>
+        </li>
+        <li class="nav-item"><a class="nav-link"
+                                href="{{fsdocs-release-notes-link}}">Release
+            Notes</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{fsdocs-repository-link}}">Source
+            Repository</a></li>
+        <li class="nav-header">
+  Documentation
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="/FsConsoleApp/Untitled-1.html">
+    Untitled-1
+  </a>
+</li>             
+<li class="nav-item active">
+  <a class="nav-link" href="/FsConsoleApp/fsdocs.html">
+    fsdocs
+  </a>
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="/FsConsoleApp/sample-ipynb-file.html">
+    sample-ipynb-file
+  </a>
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="/FsConsoleApp/sample-fsx-file.html">
+    sample-fsx-file
+  </a>
+</li>
+        
+    </ul>
+</aside>
+<main>
+    <div id="content">
+        <p>The goal of this workbook is to initialize the FSharp.Formatting document creation utility in one's own repo.</p>
+<p>This workbook should be placed in the repo root. FSharp.Formatting may be initialized using the dotnet tool utility.</p>
+<p>The standard setup is to have <code>RepoRoot/docs</code> where all your documentation .md and .fsx, etc files go. <code>fsdocs</code> will search through this directory and create the <code>*.html</code> files in the <code>RepoRoot/output</code> directory. There are customizations that can be set using the docs in the FSharp.Formatting repo. If a <code>docs</code> directoy is needed, run:</p>
+<table class="pre"><tr><td class="snippet"><pre class="fssnip"><code lang="pwsh">mkdir docs
+</code></pre></td></tr></table>
+<p>By default, <code>fsdocs</code> will search though each of your projects and create the <code>API REFERENCE</code> section. So in order to include that example, have a F# project in your repo.</p>
+<p>If the need exists to create a simple console app for this demo, run the next block. Otherwise, skip execution.</p>
+<table class="pre"><tr><td class="snippet"><pre class="fssnip"><code lang="pwsh">dotnet new console -lang f# -o src/FsConsoleApp
+</code></pre></td></tr></table>
+<p>Replace the contents of Programs.fs with the code in the following block:</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="c">//Programs.fs demo file contents</span>
+
+<span class="c">/// This is a simple F# console application that demonstrates the use of XML comments.</span>
+<span class="c">/// It prompts the user to enter a name and then greets them.</span>
+<span class="k">module</span> <span class="m">FsConsoleApp</span>
+
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="id">System</span>
+
+<span class="c">/// This function greets the user with a personalized message.</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="fn">greet</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs3', 3)" onmouseover="showTip(event, 'fs3', 3)" class="fn">name</span><span class="pn">:</span> <span onmouseout="hideTip(event, 'fs4', 4)" onmouseover="showTip(event, 'fs4', 4)" class="rt">string</span><span class="pn">)</span> <span class="o">=</span>
+    <span onmouseout="hideTip(event, 'fs5', 5)" onmouseover="showTip(event, 'fs5', 5)" class="fn">printfn</span> <span class="s">&quot;Hello, </span><span class="pf">%s</span><span class="s">! Welcome to the F# console app.&quot;</span> <span onmouseout="hideTip(event, 'fs3', 6)" onmouseover="showTip(event, 'fs3', 6)" class="fn">name</span>
+
+<span class="pn">[&lt;</span><span onmouseout="hideTip(event, 'fs6', 7)" onmouseover="showTip(event, 'fs6', 7)" class="rt">EntryPoint</span><span class="pn">&gt;]</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs7', 8)" onmouseover="showTip(event, 'fs7', 8)" class="fn">main</span> <span onmouseout="hideTip(event, 'fs8', 9)" onmouseover="showTip(event, 'fs8', 9)" class="fn">args</span> <span class="o">=</span>
+    <span onmouseout="hideTip(event, 'fs5', 10)" onmouseover="showTip(event, 'fs5', 10)" class="fn">printfn</span> <span class="s">&quot;Please enter your name:&quot;</span>
+    <span class="c">/// Apply XML comment to the name binding</span>
+    <span class="c">/// &lt;summary&gt;This is an XML comment for name.&lt;/summary&gt;</span>
+    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs9', 11)" onmouseover="showTip(event, 'fs9', 11)" class="fn">name</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs10', 12)" onmouseover="showTip(event, 'fs10', 12)" class="rt">Console</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs11', 13)" onmouseover="showTip(event, 'fs11', 13)" class="id">ReadLine</span><span class="pn">(</span><span class="pn">)</span>
+
+    
+    <span onmouseout="hideTip(event, 'fs2', 14)" onmouseover="showTip(event, 'fs2', 14)" class="fn">greet</span> <span onmouseout="hideTip(event, 'fs9', 15)" onmouseover="showTip(event, 'fs9', 15)" class="fn">name</span>
+
+    <span onmouseout="hideTip(event, 'fs5', 16)" onmouseover="showTip(event, 'fs5', 16)" class="fn">printfn</span> <span class="s">&quot;Press any key to exit...&quot;</span>
+    <span onmouseout="hideTip(event, 'fs10', 17)" onmouseover="showTip(event, 'fs10', 17)" class="rt">Console</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs12', 18)" onmouseover="showTip(event, 'fs12', 18)" class="id">ReadKey</span><span class="pn">(</span><span class="pn">)</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs13', 19)" onmouseover="showTip(event, 'fs13', 19)" class="fn">ignore</span>
+    <span class="n">0</span> <span class="c">// return an integer exit code</span>
+</code></pre>
+<p><code>dotnet tool</code> will error without a <code>Dotnet local tool manifest file</code>.
+Create one:</p>
+<table class="pre"><tr><td class="snippet"><pre class="fssnip"><code lang="pwsh">dotnet new tool-manifest
+</code></pre></td></tr></table>
+<p>The basic command to install Fsharp.Formatting is:</p>
+<table class="pre"><tr><td class="snippet"><pre class="fssnip"><code lang="pwsh">dotnet tool install fsdocs-tool
+</code></pre></td></tr></table>
+<p>fsdocs <code>watch</code> will launch a browser and allow you to browse your created docs. When it launches, it will try to hit index.html and will then 404. One needs to have a index.md or index.fsx file in the <code>docs</code> directy so fsdocs will create the index.html.</p>
+<p>Running the <code>build</code> command will search through and generate all the html into an <code>RepoRoot/</code> <code>output</code> directory.</p>
+<table class="pre"><tr><td class="snippet"><pre class="fssnip"><code lang="pwsh">dotnet fsdocs build
+</code></pre></td></tr></table>
+
+        <div class="fsdocs-tip" id="fs1">namespace System</div>
+<div class="fsdocs-tip" id="fs2">val greet: name: string -&gt; unit<br /><em>&#160;This function greets the user with a personalized message.</em></div>
+<div class="fsdocs-tip" id="fs3">val name: string</div>
+<div class="fsdocs-tip" id="fs4">Multiple items<br />val string: value: &#39;T -&gt; string<br /><br />--------------------<br />type string = String</div>
+<div class="fsdocs-tip" id="fs5">val printfn: format: Printf.TextWriterFormat&lt;&#39;T&gt; -&gt; &#39;T</div>
+<div class="fsdocs-tip" id="fs6">Multiple items<br />type EntryPointAttribute =
+  inherit Attribute
+  new: unit -&gt; EntryPointAttribute<br /><br />--------------------<br />new: unit -&gt; EntryPointAttribute</div>
+<div class="fsdocs-tip" id="fs7">val main: args: string array -&gt; int</div>
+<div class="fsdocs-tip" id="fs8">val args: string array</div>
+<div class="fsdocs-tip" id="fs9">val name: string<br /><em>&#160;Apply XML comment to the name binding<br />&#160;&lt;summary&gt;This is an XML comment for name.&lt;/summary&gt;</em></div>
+<div class="fsdocs-tip" id="fs10">type Console =
+  static member Beep: unit -&gt; unit + 1 overload
+  static member Clear: unit -&gt; unit
+  static member GetCursorPosition: unit -&gt; struct (int * int)
+  static member MoveBufferArea: sourceLeft: int * sourceTop: int * sourceWidth: int * sourceHeight: int * targetLeft: int * targetTop: int -&gt; unit + 1 overload
+  static member OpenStandardError: unit -&gt; Stream + 1 overload
+  static member OpenStandardInput: unit -&gt; Stream + 1 overload
+  static member OpenStandardOutput: unit -&gt; Stream + 1 overload
+  static member Read: unit -&gt; int
+  static member ReadKey: unit -&gt; ConsoleKeyInfo + 1 overload
+  static member ReadLine: unit -&gt; string
+  ...<br /><em>&lt;summary&gt;Represents the standard input, output, and error streams for console applications. This class cannot be inherited.&lt;/summary&gt;</em></div>
+<div class="fsdocs-tip" id="fs11">Console.ReadLine() : string</div>
+<div class="fsdocs-tip" id="fs12">Console.ReadKey() : ConsoleKeyInfo<br />Console.ReadKey(intercept: bool) : ConsoleKeyInfo</div>
+<div class="fsdocs-tip" id="fs13">val ignore: value: &#39;T -&gt; unit</div>
+
+    </div>
+</main>
+<aside id="fsdocs-page-menu">
+    <p id="on-this-page">On this page</p>
+    <div class="empty"></div>
+</aside>
+<dialog>
+    <input type="search" placeholder="Search docs" />
+    <div class="results">
+        <ul></ul>
+        <p class="empty">Type something to start searching.</p>
+    </div>
+</dialog>
+<script type="module" src="/FsConsoleApp/content/fsdocs-tips.js"></script>
+<script type="module" src="/FsConsoleApp/content/fsdocs-theme-toggle.js"></script>
+<script type="module" src="/FsConsoleApp/content/fsdocs-theme.js"></script>
+<script type="module" src="/FsConsoleApp/content/fsdocs-search.js"></script>
+
+</body>
+</html>
